@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.port = exports.app = void 0;
+const express_1 = __importDefault(require("express"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const helper_1 = require("./utils/helper");
+const user_1 = __importDefault(require("./routes/user"));
+const posts_1 = __importDefault(require("./routes/posts"));
+const middleware_1 = require("./middleware");
+const account_1 = __importDefault(require("./routes/account"));
+const app = (0, express_1.default)();
+exports.app = app;
+const { PORT: port } = (0, helper_1.getEnv)();
+exports.port = port;
+app.use(express_1.default.json());
+app.use((0, cookie_parser_1.default)());
+app.use("/api/user", user_1.default);
+app.use("/api/post", middleware_1.verifyToken, posts_1.default);
+app.use("/account", account_1.default);
+app.get("/", (req, res) => res.send("<h1>Welcome 😊 The site is under construction.</h1>"));
