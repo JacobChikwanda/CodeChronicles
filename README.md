@@ -26,8 +26,8 @@ Within each month's folder, you'll find a mix of projects, exercises, notes, and
 
 Here, you can find a brief overview of some key projects included in this repository. (Remember to update this section as you add new projects.)
 
-- **Project Name**: Brief description. (Month, Year)
-- **Another Project**: Brief description. (Month, Year)
+- **[Prisma Quickstart]('./prisma-quickstart')**: Brief description. (March, 2024)
+- **[Authentication]('./authentication')**: Brief description. (March, 2024)
 
 ## Reflections
 
